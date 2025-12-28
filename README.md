@@ -1,7 +1,7 @@
 # Walmart Sales Performance Analysis (SQL Case Study)
 
 ## Objective
-Analyze Walmart’s weekly sales data to understand sales trends, store performance, and the impact of holidays using SQL.
+Analyze Walmart’s weekly sales data to understand sales trends, store performance, and the impact of holidays using SQL and provide recomendation based on the insights.
 
 ## Tools Used
 - MySQL
