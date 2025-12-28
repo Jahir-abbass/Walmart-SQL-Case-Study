@@ -42,14 +42,14 @@ Source: https://www.kaggle.com/datasets/varsharam/walmart-sales-dataset-of-45sto
 ```sql
 SELECT 
      ROUND(SUM(Weekly_Sales), 2) AS total_revenue
-FROM walmartt;
+FROM walmart_sales;
 ```
 
 ### 2. How many unique stores are included?
 ```sql
 SELECT 
      COUNT(DISTINCT Store) as total_store 
-FROM walmartt;
+FROM walmart_sales;
 ```
 
 ### 3. Which are the top 5 stores by total sales?
@@ -57,7 +57,7 @@ FROM walmartt;
 SELECT 
      Store,
      ROUND(SUM(Weekly_Sales), 2) AS total_sales 
-From walmartt
+From walmart_sales
 group by store 
 order by total_sales DESC 
 LIMIT 5;
@@ -69,7 +69,7 @@ SELECT
     Holiday_Flag,
     ROUND(AVG(Weekly_Sales), 2) AS average_weekly_sales
 FROM
-    walmartt
+    walmart_sales
 GROUP BY Holiday_FLag;
 ```
 
@@ -78,7 +78,7 @@ GROUP BY Holiday_FLag;
 SELECT 
      DATE_FORMAT(STR_TO_DATE(Date, '%d-%m-%Y'), '%Y-%m') AS month,
      ROUND(SUM(Weekly_Sales), 2) AS total_sales 
-FROM walmartt
+FROM walmart_sales
 group by month 
 order by month;
 ```
@@ -89,7 +89,7 @@ SELECT
       Store, 
       ROUND(SUM(Weekly_Sales), 2) AS total_sales,
       RANK() OVER (ORDER BY SUM(Weekly_Sales) DESC) AS sales_rank 
-FROM walmartt 
+FROM walmart_sales
 group by Store;
 ```
 
@@ -98,9 +98,9 @@ group by Store;
 SELECT 
      Store,
      ROUND(SUM(Weekly_Sales), 2) AS total_sales  
-from walmartt 
+from walmart_sales
 group by Store
-having total_sales > (select avg(Weekly_Sales) from walmartt);
+having total_sales > (select avg(Weekly_Sales) from walmart_sales);
 ```
 
 ### 8. What is the impact of holidays on average sales?
@@ -108,7 +108,7 @@ having total_sales > (select avg(Weekly_Sales) from walmartt);
 SELECT 
       Holiday_Flag,
       ROUND(AVG(Weekly_Sales), 2)  AS Average_Sales 
-FROM walmartt
+FROM walmart_sales
 group by Holiday_Flag;
 
 ```
@@ -122,7 +122,7 @@ SELECT
          WHEN SUM(Weekly_Sales)  BETWEEN 80000000 AND 120000000 THEN 'Medium'
          else 'Low'
 		END AS sales_Category 
-FROM walmartt 
+FROM walmart_sales
 GROUP BY Store;
 ```
 
@@ -131,7 +131,7 @@ GROUP BY Store;
 SELECT 
       YEAR(str_to_date(date, '%d-%m-%Y')) as Year,
       ROUND(SUM(Weekly_Sales), 2) as Total_sales  
-from walmartt
+from walmart_sales
 GROUP BY Year
 ORDER BY Year ASC;
 ```
@@ -141,7 +141,7 @@ ORDER BY Year ASC;
 SELECT 
       MONTH(str_to_date(date, '%d-%m-%Y')) as Month,
       ROUND(SUM(Weekly_Sales), 2) as Total_sales  
-from walmartt
+from walmart_sales
 GROUP BY Month 
 ORDER BY Month ASC;
 ```
