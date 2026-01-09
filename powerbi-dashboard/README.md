@@ -26,5 +26,4 @@ To visualize Walmart’s sales performance and uncover trends, store-level insig
 - Sales show clear seasonality and steady growth over time.
 - Store-wise performance varies significantly, indicating regional demand differences.
 
-## File Info
-- `.pbit` file allows users to load their own data while retaining the dashboard design.
+
